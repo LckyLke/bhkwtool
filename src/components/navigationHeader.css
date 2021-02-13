@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.linkElement{
+    @apply hover:bg-blue-200 group rounded-md border-2 border-blue-200 shadow-md p-1.5 align-middle;
+}
+
+.linkElementSpan{
+    @apply text-black
+}
+
+.buttonElement{
+    @apply hover:bg-blue-200 group rounded-md border-2 border-blue-200 shadow-md p-1.5 align-middle focus:outline-none;
+      
+}
+
