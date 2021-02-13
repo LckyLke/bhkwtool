@@ -5,7 +5,7 @@ import React from "react"
 const OutputNamePair = props => {
     const dependableUnitRender = () => {
        
-        return props.unit ? <div className="ml-2 text-xs font-bold self-center w-1/12 mr-1">{"["+props.unit+"]"}</div> : null}
+        return props.unit ? <div className="ml-2 text-sm font-bold self-center w-1/12 mr-1">{"["+props.unit+"]"}</div> : null}
 
 
     return (

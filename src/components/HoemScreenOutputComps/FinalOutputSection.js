@@ -27,7 +27,7 @@ const FinalOutputSection = props => {
     
     
     return (
-        <div className="border-2 border-black rounded-md mt-2 p-1">
+        <div className="border-2 border-black text-md rounded-md mt-2 p-1">
             <StaticAndDynamicOutputRow bold={true} highlitedCol={highlitedCol}  setHighlitedCol={setHighlitedCol} rowName="Betriebsjahr" valueArray={[2021,2022,2023,2024,2025,2026,2027,2028,2029]}/>
 
             <StaticAndDynamicOutputRow highlitedCol={highlitedCol} highlitedRow={highlitedRow} setHighlitedRow={setHighlitedRow} rowName="Betriebsstunden BHKW [h/a]" valueArray={[

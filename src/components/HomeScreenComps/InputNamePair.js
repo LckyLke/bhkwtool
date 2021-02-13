@@ -17,7 +17,7 @@ const InputNamePair = props => {
     const updateVal = useStore(state => state.updateValue)
 
     const dependableUnitRender = () => {
-        return props.unit ? <div className="ml-2 text-xs font-bold self-center w-1/12 mr-1">{"["+props.unit+"]"}</div> : null}
+        return props.unit ? <div className="ml-2 text-sm font-bold self-center w-1/12 mr-1">{"["+props.unit+"]"}</div> : null}
 
     const inputChangeHandler = (e) => {
         

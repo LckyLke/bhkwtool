@@ -15,7 +15,7 @@ import InfoScreen from "./screens/InfoScreen"
 function App() {
   return (
     <Router>
-      <div className="App h-full">
+      <div className="App h-full text-xl">
         <Switch>
           <Route path="/info">
             <InfoScreen/>

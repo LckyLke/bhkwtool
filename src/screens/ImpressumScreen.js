@@ -6,7 +6,7 @@ const ImpressumScreen = () => {
     return (
         <div className="flex font-mono flex-col justify-between h-screen">
             <NavigationHeader />
-            <div className=" text-xs px-5 mt-20">
+            <div className=" text-sm px-5 mt-20">
                 <h1>Impressum</h1>
 
                 <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
