@@ -143,7 +143,7 @@ const calcLogic = {
     VollrevisionRechner: (kostenVollrevision, preissteigerungenWartungProA, betriebsstundenBHKW,exponent) => {
         const a = toMath(kostenVollrevision)
         const b = toMath(preissteigerungenWartungProA)
-        const c = toMath(betriebsstundenBHKW)
+        
         const d = toMath(exponent)
         
        
