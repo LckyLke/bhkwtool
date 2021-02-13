@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import InputShell from "./InputShell";
 import InputNamePair from "./InputNamePair"
 import InputSeperator from "./InputSeperator"

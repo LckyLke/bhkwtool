@@ -1,6 +1,5 @@
 import calcLogic from "../HomeScreenComps/calcLogic"
-import useStore from "../../store/useStore"
-import convertLogic from "../HomeScreenComps/convertLogic"
+
 
 
 const checkIfValid = (calc) => {
@@ -10,9 +9,7 @@ const checkIfValid = (calc) => {
     return 0
 }
 
-const checkIfDefined = (calculation, doRound) => {
-    return  ((calculation) ? (doRound ? Math.round((calculation)) : (Math.round((calculation) *100))/100) : "0")
-}
+
 
 
 
