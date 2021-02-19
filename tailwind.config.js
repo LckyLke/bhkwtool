@@ -7,7 +7,8 @@ module.exports = {
   variants: {
     extend: {
       textColor: ['group-hover'],
-      animation: ['hover', 'group-hover']
+      animation: ['hover', 'group-hover'],
+      inset: "active"
     },
   },
   plugins: [],

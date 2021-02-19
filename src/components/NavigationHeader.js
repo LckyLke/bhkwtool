@@ -1,11 +1,14 @@
 import "./navigationHeader.css"
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import useStore from "../store/useStore"
-import React from "react"
+import React, {useContext} from "react"
 import ReactFileReader from 'react-file-reader';
 import cloneDeep from 'lodash/cloneDeep'
+import app from "../Firebase"
 
-import {Link} from "react-router-dom"
+import {Link, useHistory } from "react-router-dom"
+
+import { AuthContext } from "../components/FirebaseAuth/Auth";
 
 
 
@@ -13,6 +16,7 @@ import {Link} from "react-router-dom"
  
 
 const NavigationHeader = props => {
+    const { currentUser } = useContext(AuthContext);
 
     const state = useStore()
 
@@ -62,6 +66,7 @@ const NavigationHeader = props => {
     }
 
     const handleFiles = files => {
+        
         var reader = new FileReader();
         reader.onload = function(e) {
             // Use reader.result
@@ -72,16 +77,26 @@ const NavigationHeader = props => {
     }
 
     const exportFunction = () => {
+        if (!currentUser) {
+            alert("Melden Sie sich erst an um Daten zu exportieren.")
+            return
+        }
         const csvData = objectToCsv(state)
         download("SEP=,\n" + csvData)
     }
     
+    const history = useHistory()
+
+    const onLogOut = () => {
+        app.auth().signOut()
+        history.push("/login")
+    }
     return (
     
         <nav>
             
             <div id="navbar" className={"bg-white justify-between flex py-3.5 object-top w-full top-0 shadow-md fixed z-10"}>
-                <Link to="/impressum">
+                <Link to="/impressum" className="text-decoration-none hover:text-black">
                     <div className="group flex ml-10 shadow-md p-1.5 align-middle border-red-300 border-2 rounded-md">
                         <span>BHKWCalculator</span><span className="text-xs text-red-500">Testversion</span><span className="group-hover:animate-bounce" ><AiOutlineInfoCircle color=""/></span>
                     </div>
@@ -89,15 +104,17 @@ const NavigationHeader = props => {
                 </Link>
 
                 <div className="flex justify-around w-3/5">
-                    <Link to="/" className="linkElement" ><span className="group-hover:text-white linkElementSpan">Home</span></Link>
+                    <Link to="/" className="text-decoration-none linkElement" ><span className="group-hover:text-white linkElementSpan">Home</span></Link>
                     <div className="border-r-2 pr-2 border-black"></div>
-                    <Link to="/info" className="linkElement" ><span className="group-hover:text-white linkElementSpan">Info</span></Link>
+                    <Link to="/info" className="text-decoration-none linkElement" ><span className="group-hover:text-white linkElementSpan">Info</span></Link>
                     <div className="border-r-2 pr-2 border-black"></div>
                     <button onClick={exportFunction} className="buttonElement"> <span className="group-hover:text-white linkElementSpan">Export</span></button>
                     <div className="border-r-2 pr-2 border-black"></div>
                     
-                    <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}><button className="buttonElement"> <span className="group-hover:text-white linkElementSpan">Import</span></button></ReactFileReader>
-                   
+                    {currentUser ? <ReactFileReader handleFiles={handleFiles} fileTypes={'.csv'}><button className="buttonElement"> <span className="group-hover:text-white linkElementSpan">Import</span></button></ReactFileReader> : <button className="buttonElement" onClick={() => {alert("Melden Sie sich erst an um Daten zu importieren.")}}> <span className="group-hover:text-white linkElementSpan">Import</span></button>}
+                    
+                    {currentUser ? <div className="border-r-2 pr-2 border-black"></div> : <></>}
+                    {currentUser ?  <button onClick={onLogOut} className="buttonElement"> <span className="group-hover:text-white linkElementSpan">Abmelden</span></button> : <></>}                   
                 </div>
                 
             </div>

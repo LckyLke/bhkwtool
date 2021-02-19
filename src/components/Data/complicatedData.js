@@ -12,8 +12,9 @@ const checkIfValid = (calc) => {
 
 
 
-
 const complicatedData = (toAccsess, state) => {
+    
+    
     const dataObject = {
         VollrevisionDaten: calcLogic.VollrevisionArrayCalc([
             calcLogic.VollrevisionRechner(state.KostenVollrevision, state.PreissteigerungenWartungProA, checkIfValid(state.BetriebsstundenBHKW * 1), 0),
@@ -25,6 +26,7 @@ const complicatedData = (toAccsess, state) => {
             calcLogic.VollrevisionRechner(state.KostenVollrevision, state.PreissteigerungenWartungProA, checkIfValid(state.BetriebsstundenBHKW * 7), 6),
             calcLogic.VollrevisionRechner(state.KostenVollrevision, state.PreissteigerungenWartungProA, checkIfValid(state.BetriebsstundenBHKW * 8), 7),
             calcLogic.VollrevisionRechner(state.KostenVollrevision, state.PreissteigerungenWartungProA, checkIfValid(state.BetriebsstundenBHKW * 9), 8),
+            0,
         ], [
             checkIfValid(state.BetriebsstundenBHKW * 1),
             checkIfValid(state.BetriebsstundenBHKW * 2),
@@ -37,7 +39,7 @@ const complicatedData = (toAccsess, state) => {
             checkIfValid(state.BetriebsstundenBHKW * 9),
         ])
     }
-
+    console.log(dataObject[toAccsess])
     return dataObject[toAccsess]
 }
    

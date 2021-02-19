@@ -70,7 +70,7 @@ const InfoScreen = () => {
                 <InfoParagraph>Da es sich bei der aktuellen Version um eine noch nicht fertige Testverion handelt können vereinzelt Bugs, Ungenauigkeiten oder Fehler auftreten.</InfoParagraph>
                 <InfoParagraph>Sollten Sie während Ihrer Nutzung auf Fehler im Programm treffen können Sie an uns an die im <Link to="/impressum"><span className="text-green-500">Impressum</span></Link> und Footer gezeigte Mail Adresse eine Email schreiben.</InfoParagraph>
                 <InfoParagraph>Diese sollte das Problem an sich beschreiben und wie man dieses hervorrufen kann.</InfoParagraph>
-                <InfoParagraph>Bei anderweitigen Fragen kann die genannte Email ebenfalls verwendet werden</InfoParagraph>
+                <InfoParagraph>Bei anderweitigen Fragen kann die genannte Email ebenfalls verwendet werden.</InfoParagraph>
                 
             </InfoContainer>
             <Footer />
